@@ -24,4 +24,5 @@ Abra `index.html` no navegador ou sirva a pasta com um servidor HTTP estático. 
 - `assets/hero-oficina.png`: imagem ilustrativa da abertura.
 - `assets/historia-wm-auto-center.mp4`: vídeo da história e da inauguração da empresa, fornecido pelo cliente.
 - `assets/historia-wm-auto-center.jpg`: capa extraída do vídeo.
+- `assets/{pneus,geometria-3d,balanceamento,suspensao,freios,mecanica-geral,correia-dentada,troca-de-oleo}.jpg`: fotos ilustrativas dos serviços, redimensionadas a partir dos arquivos do Wikimedia Commons. Os links de origem, autores e licenças estão disponíveis na seção “Créditos das fotos ilustrativas” do próprio site.
 - `TRACKING.md`: eventos da camada de dados e instruções para configurar os acionadores no Google Tag Manager.
