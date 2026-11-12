@@ -13,6 +13,35 @@ menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 
+const testimonialTrack = document.querySelector('#testimonial-track');
+if (testimonialTrack) {
+  const cards = [...testimonialTrack.querySelectorAll('.testimonial-card')];
+  const progress = document.querySelector('#testimonial-progress');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const cardStep = () => cards[1].offsetLeft - cards[0].offsetLeft;
+
+  function updateTestimonialProgress() {
+    const first = Math.min(Math.round(testimonialTrack.scrollLeft / cardStep()), cards.length - 1);
+    const visible = Math.max(1, Math.round(testimonialTrack.clientWidth / cardStep()));
+    const last = Math.min(first + visible, cards.length);
+    progress.textContent = `${first + 1}${last > first + 1 ? `–${last}` : ''} de ${cards.length}`;
+  }
+
+  function moveTestimonials(direction) {
+    const step = cardStep();
+    const atStart = testimonialTrack.scrollLeft <= 2;
+    const atEnd = testimonialTrack.scrollLeft >= testimonialTrack.scrollWidth - testimonialTrack.clientWidth - 2;
+    const left = direction > 0 && atEnd ? 0 : direction < 0 && atStart ? testimonialTrack.scrollWidth : testimonialTrack.scrollLeft + direction * step;
+    testimonialTrack.scrollTo({ left, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
+
+  document.querySelector('#testimonial-prev').addEventListener('click', () => moveTestimonials(-1));
+  document.querySelector('#testimonial-next').addEventListener('click', () => moveTestimonials(1));
+  testimonialTrack.addEventListener('scroll', updateTestimonialProgress, { passive: true });
+  window.addEventListener('resize', updateTestimonialProgress);
+  updateTestimonialProgress();
+}
+
 // Eventos estáveis para acionadores de Evento personalizado no Google Tag Manager.
 const campaignParams = new URLSearchParams(window.location.search);
 const campaignContext = {
