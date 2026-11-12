@@ -18,7 +18,10 @@ Abra `index.html` no navegador ou sirva a pasta com um servidor HTTP estático. 
 
 - `index.html`: estrutura e metadados.
 - `styles.css`: estilos responsivos.
-- `script.js`: menu móvel e atualização do ano no rodapé.
+- `script.js`: menu móvel, atualização do ano no rodapé e eventos para o Google Tag Manager.
 - `LOGO.png`: marca original do cliente.
 - `assets/favicon.png`: favicon criado a partir da marca original.
 - `assets/hero-oficina.png`: imagem ilustrativa da abertura.
+- `assets/historia-wm-auto-center.mp4`: vídeo da história e da inauguração da empresa, fornecido pelo cliente.
+- `assets/historia-wm-auto-center.jpg`: capa extraída do vídeo.
+- `TRACKING.md`: eventos da camada de dados e instruções para configurar os acionadores no Google Tag Manager.
